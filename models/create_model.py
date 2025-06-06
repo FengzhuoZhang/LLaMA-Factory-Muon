@@ -105,37 +105,6 @@ def get_parameter_count(model):
         'trainable_parameters_millions': trainable_params / 1e6
     }
 
-
-# Example usage
-# if __name__ == "__main__":
-#     setup_debugpy(force=True)
-#     # Initialize a small Llama model for testing
-#     model = initialize_llama_model({
-#         'vocab_size': 32000,
-#         'hidden_size': 768,
-#         'intermediate_size': 4*768,
-#         'num_hidden_layers': 12,
-#         'num_attention_heads': 6,
-#         'num_key_value_heads': 6,  # For grouped-query attention
-#         'hidden_act': "silu",
-#         'max_position_embeddings': 2048,
-#         'initializer_range': 0.02,
-#         'rms_norm_eps': 1e-6,
-#         'rope_theta': 10000.0,
-#     })
-    
-#     # Print model info
-#     param_info = get_parameter_count(model)
-#     print(f"Model initialized with {param_info['total_parameters_millions']:.2f}M parameters")
-    
-#     # Test forward pass with random input
-#     batch_size, seq_len = 2, 128
-#     input_ids = torch.randint(0, 32000, (batch_size, seq_len))
-    
-#     with torch.no_grad():
-#         outputs = model(input_ids)
-#         print(f"Output logits shape: {outputs.logits.shape}")
-#         print("Model initialization successful!")
 def get_tokenizer_info(tokenizer_path_or_name):
     """
     Extract key information from an existing tokenizer.
@@ -500,6 +469,7 @@ def create_matched_llama_model(tokenizer_path_or_name, model_config=None, save_p
     return model, config, tokenizer
 
 if __name__ == "__main__":
+    setup_debugpy(force=True)
     try:
         model, config, tokenizer = create_matched_llama_model(
             tokenizer_path_or_name="/home/aiops/zhangfz/pretrained_models/Llama-2-7b-hf",
@@ -527,3 +497,34 @@ if __name__ == "__main__":
         
         # You would replace this with your actual tokenizer path
         print("Please provide a valid tokenizer path or model name to continue")
+
+# Example usage
+# if __name__ == "__main__":
+#     setup_debugpy(force=True)
+#     # Initialize a small Llama model for testing
+#     model = initialize_llama_model({
+#         'vocab_size': 32000,
+#         'hidden_size': 768,
+#         'intermediate_size': 4*768,
+#         'num_hidden_layers': 12,
+#         'num_attention_heads': 6,
+#         'num_key_value_heads': 6,  # For grouped-query attention
+#         'hidden_act': "silu",
+#         'max_position_embeddings': 2048,
+#         'initializer_range': 0.02,
+#         'rms_norm_eps': 1e-6,
+#         'rope_theta': 10000.0,
+#     })
+    
+#     # Print model info
+#     param_info = get_parameter_count(model)
+#     print(f"Model initialized with {param_info['total_parameters_millions']:.2f}M parameters")
+    
+#     # Test forward pass with random input
+#     batch_size, seq_len = 2, 128
+#     input_ids = torch.randint(0, 32000, (batch_size, seq_len))
+    
+#     with torch.no_grad():
+#         outputs = model(input_ids)
+#         print(f"Output logits shape: {outputs.logits.shape}")
+#         print("Model initialization successful!")

@@ -13,6 +13,7 @@
 # limitations under the License.
 
 from llamafactory.train.tuner import run_exp
+#from utils import setup_debugpy
 
 
 def main():
@@ -25,4 +26,5 @@ def _mp_fn(index):
 
 
 if __name__ == "__main__":
+    #setup_debugpy(force=True)
     main()
