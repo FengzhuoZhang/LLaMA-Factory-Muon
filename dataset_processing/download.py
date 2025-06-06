@@ -6,7 +6,7 @@ import os
 dataset_name = "HuggingFaceFW/fineweb"
 config_name = "sample-10BT"
 split = "train"
-output_dir = "/home/aiops/zhangfz/LLaMA-Factory-Muon/data/fineweb"
+output_dir = "/home/aiops/zhangfz/LLaMA-Factory-Muon/dataset_self/fineweb"
 chunk_size = 10000
 max_chunks = 10  # Set to None to stream everything
 

@@ -180,3 +180,5 @@ predictions_score.json
 data/fineweb/
 running_ckpts/
 running_logs/
+fineweb/
+dataset_self/

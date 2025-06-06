@@ -489,6 +489,7 @@ if __name__ == "__main__":
         }
         )
         print("✓ Successfully created model matching Llama-2 7B tokenizer")
+        print(tokenizer.chat_template)
         
     except Exception as e:
         print(f"Could not load Llama-2 tokenizer: {e}")
